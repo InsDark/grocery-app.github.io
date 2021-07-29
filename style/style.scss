@@ -62,7 +62,7 @@ nav{
             font-size: 1.5rem;
         }
     }
-    .items-cart{
+    .item-cart{
         display: flex;
         align-items: center;
         @include links-style;
@@ -112,54 +112,6 @@ nav{
     }
     a{
         @include links-style;
-    }
-    .itemsAdded{
-        display: none;
-        position: absolute;
-        width: 400px;
-        height: 100vh;
-        top: 5rem;
-        left: 70%;
-        background-color: rgba(255, 255, 0, 0.4);
-        .itemCart{
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            font-size: 1.3rem;
-            &:hover{
-                color: $color3;
-            }
-            i{
-                transition: .4s ease;
-                color: rgb(167, 45, 45); 
-                &:hover{
-                    transition: .4s ease;
-                    transform: scale(120%);
-                    color: $color3;
-                    cursor: pointer;
-                }
-            }
-        }
-        .totalPrice{
-            text-align: center;
-            font-size: 1.6rem;
-            h2{
-                margin: 0;
-            }
-        }
-        .pay{
-            display: flex;
-            justify-content: space-evenly;
-            p{
-                @include links-style;
-                cursor: pointer;
-                font-size: 1.5rem;
-                font-weight: 100;
-            }
-        }
-    }
-    .active{
-        display: block !important;
     }
 }
 
@@ -265,6 +217,43 @@ nav{
                 cursor: pointer;
                 i{
                     margin-right: .4rem;
+                }
+            }
+        }
+    }
+}
+
+.grocery-cart{
+    text-align: center;
+    h2{
+        color: $color3;
+        font-size: 3rem;
+    }
+    strong{
+        color: $color2;
+        font-size: 4rem;
+    }
+    .items-cart{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        gap: 2rem;
+        padding: 0 3rem;
+        div{
+            align-items: center;
+            box-shadow: 1px 1px 10px black;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: space-around;
+            h2{
+                font-size: 2rem;
+            }
+            .fa-trash{
+                color: red;
+                &:hover{
+                    transition:  all .2s ease;
+                    color: rgb(27, 2, 27);
+                    cursor: pointer;
+                    transform: scale(120%);
                 }
             }
         }
