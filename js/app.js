@@ -1,24 +1,66 @@
-let itemsCart = document.querySelector('.items-cart')
-let products = document.querySelector('.products').addEventListener('click', e => {
-    addToCart(e);
+// To filter items
+let myBtn = document.querySelectorAll('button')
+let itemStand = document.querySelectorAll('.item')
+
+myBtn.forEach(button => {
+    button.addEventListener('click', e => {
+        let filter = e.target.textContent.toLowerCase()
+        itemStand.forEach(item => {
+            if (item.classList.contains(`${filter}`)){
+                item.style.display = 'block'
+            } else if (item.classList !== `${filter}`){
+                item.style.display = 'none'
+            }
+            if(filter === 'all'){
+                item.style.display = 'block'
+            }
+        })
+        e.stopPropagation()
+    })
 })
 
-const addToCart = e => {
-    if (e.target.classList.contains('addItem')){
-        let item = e.target.parentElement;
-        let itemName = item.childNodes[3].childNodes[1].textContent;
-        let itemPrice = item.childNodes[3].childNodes[3].textContent;
-        let newItem = document.createElement("div");
-        newItem.innerHTML = `<h2>${itemName}</h2> <h2>${itemPrice}</h2><i class="fa fa-trash"></i>`
-        itemsCart.appendChild(newItem);
-    }
-    let delItems = document.querySelector('.fa-trash')
-    delItems.addEventListener('click', (e) => {
-        if(e.target.classList.contains('fa-trash')){
-            let itemUp = e.target.parentElement;
-            itemsCart.remove(e.target.parentElement);
 
+//To modal the items img
+const itemPicture = document.querySelectorAll('.item-picture')
+let modal = document.querySelector('.modal')
+let modalPicture = document.querySelector('.modal-bg')
+const modalBtnHide = document.querySelector('.fa-times-circle')
+const btnModalSlide = document.querySelectorAll('.modal-slide')
+let imgArray = []
+let imgCount = 0;
+
+itemPicture.forEach(img => {
+    imgArray.push(img.alt)
+})
+
+
+itemPicture.forEach(picture =>{
+    picture.addEventListener('click', e =>{
+        let imgSrc = e.target.alt
+        modal.style.display = 'block'
+        modalPicture.style.backgroundImage = `url(img/${imgSrc})`
+    })
+})
+
+modalBtnHide.addEventListener('click', () =>{
+    modal.style.display ='none'
+})
+
+btnModalSlide.forEach(btnChange =>{
+    btnChange.addEventListener('click', e =>{
+        if(e.target.classList.contains('fa-angle-right')){
+            imgCount++;
+            if (imgCount > imgArray.length-1){
+                imgCount = 0;
+            }
+            modalPicture.style.backgroundImage = `url(img/${imgArray[imgCount]})`
+        }
+        if(e.target.classList.contains('fa-angle-left')){
+            imgCount--;
+            if (imgCount < 0){
+                imgCount = imgArray.length -1;
+            }
+            modalPicture.style.backgroundImage = `url(img/${imgArray[imgCount]})`
         }
     })
-    e.stopPropagation();
-} 
+})

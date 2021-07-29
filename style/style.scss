@@ -168,11 +168,12 @@ nav{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        a{
+        button{
             @include links-style;
             font-size: 1.3rem;
             font-weight: 400;
             margin: .5rem 1.5rem;
+            cursor: pointer;  
         }
     }
     .products{
@@ -257,5 +258,52 @@ nav{
                 }
             }
         }
+    }
+}
+
+.modal{
+    display: none;
+    color: $color2;
+    padding: 1rem;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.4);
+    i{
+        font-size: 3rem;
+        display: flex;
+        justify-content: flex-end;
+        transition: .4s ease;
+        &:hover{
+            transition: .4s ease;
+            color: $color1;
+            cursor: pointer;
+        }
+    }
+    .modal-content{
+        display: flex;
+        align-items: center;      
+        justify-content: center;
+        .modal-bg{
+            display: flex;
+            background: url("../img/cake-1.jpeg") center/cover fixed no-repeat;
+            width: 80vw;
+            min-height: 80vh;
+            border-radius: 1rem;
+        }
+        i{
+            padding: 1rem;
+            transition: .3s ease;
+            background-color: $color1;
+            border-radius: .3rem;
+            &:hover{
+                background-color: $color2;
+                border-radius: .3rem;
+            }
+        }
+
     }
 }
