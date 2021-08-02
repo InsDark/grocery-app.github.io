@@ -97,6 +97,9 @@ nav{
             background-color: $color3;
         }
     }
+    .another-nav{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 750px){
@@ -125,6 +128,26 @@ nav{
                 color: $color2;
                 background-color: $color3;
             }
+        }
+        .another-nav{
+            display: block;
+            position: absolute;
+            background-color: $color2;
+            width: 100%;
+            top: 4rem;
+            display: grid;
+            padding: .5rem 1rem;
+            display: none;
+            a{
+                color: $color1;
+                text-decoration: none;
+                &:hover{
+                    color:$color3;
+                }
+            }
+        }
+        .active{
+            display: grid;
         }
     }
 }
@@ -159,6 +182,29 @@ nav{
         @include links-style;
     }
 }
+@media screen and (max-width: 750px){
+    .item-cart-list{
+        display: none;
+        position: absolute;
+        a{
+            font-size: 1.5rem;
+            display: none;
+        }
+        .singleItem{
+            display: none;
+            h3{
+                display: none;
+            }
+            i{
+                display: none;
+            }
+        }
+        .buttons{
+            display: none;
+        }
+    }
+
+}
 
 .item-cart-list{
     position: absolute;
@@ -187,6 +233,9 @@ nav{
                 color: red;
             }
         }
+    }
+    .buttons{
+        display: block;
     }
 }
 .active {

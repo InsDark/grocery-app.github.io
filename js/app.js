@@ -159,3 +159,10 @@ checkOut.addEventListener('click', () => {
     }
     
 })
+
+let selectorNav = document.querySelector('.fa-bars')
+let anotherNav = document.querySelector('.another-nav')
+selectorNav.addEventListener('click', () => {
+    anotherNav.classList.toggle('active')
+    cartListItems.classList.remove('active')
+})
