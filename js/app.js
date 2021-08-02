@@ -64,3 +64,88 @@ btnModalSlide.forEach(btnChange =>{
         }
     })
 })
+
+// To add and delete items on the cart
+let cartListItems = document.querySelector('.item-cart-list')
+let cartList = document.querySelector('.item-cart')
+
+cartList.addEventListener('click', () => {
+    cartListItems.classList.toggle('active')
+})
+
+let totalMoney = []
+const countMoney = () => {
+    let singleItemPrice = document.querySelectorAll('.singleItemPrice')
+    let total = []
+    singleItemPrice.forEach(price =>{
+        let count = price.textContent.split('')
+        count.shift()
+        count.shift()
+        total.push(parseInt(String(count)))
+        let newTotal = 0
+        total.forEach(price =>{
+            let plus = newTotal += price
+            countItems(plus)
+        })
+    })
+}
+
+const countItems = (plus) => {
+    let numberOfItems = otherCartList.childElementCount
+    let itemsBuyed = document.querySelector('.itemsBuy')
+
+    if (plus === undefined) {
+        itemsBuyed.textContent = `${numberOfItems} Items - $ 00.00`
+    } else {
+        itemsBuyed.textContent = `${numberOfItems} Items - $ ${plus} .00`
+    }
+
+}
+
+//Add a item to the cart
+let itemsCart = document.querySelectorAll('.addItem')
+
+const delItems = () =>{
+    let delItem = document.querySelectorAll('.fa-trash')
+    delItem.forEach(item => {
+        item.addEventListener('click', (e) =>{
+            let upElement = e.target.parentElement
+            upElement.remove()
+            countItems()
+            countMoney()
+        })
+    })
+}
+
+itemsCart.forEach(item => {
+    item.addEventListener('click', (e) =>{
+        let elementCart = e.target.parentElement.childNodes[3]
+        let elementName = elementCart.childNodes[1].textContent
+        let elementPrice = elementCart.childNodes[3].textContent
+        addItems(elementName, elementPrice)
+    })
+    delItems()
+})
+
+let messageAdded = document.querySelector('.messageAdded')
+let otherCartList = document.querySelector('.otherCartList')
+
+const addItems = (elementName, elementPrice) => {
+    let singleItem = document.createElement('div')
+    singleItem.classList.add('singleItem')
+    singleItem.innerHTML = `<h3>${elementName}</h3>
+                            <h3 class="singleItemPrice">${elementPrice}</h3>
+                            <i class="fas fa-trash"></i>`
+    otherCartList.insertBefore(singleItem, otherCartList.childNodes[0])
+    alert('The item was added')
+    delItems() 
+    countItems()
+    countMoney()
+}
+
+let clearAll = document.querySelector('.clearAll')
+clearAll.addEventListener('click', () => {
+    otherCartList.textContent = '';
+    countItems()
+    countMoney()
+})

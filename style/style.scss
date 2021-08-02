@@ -115,6 +115,38 @@ nav{
     }
 }
 
+.item-cart-list{
+    position: absolute;
+    background-color: rgba(255, 255, 0, 0.616);
+    top: 5rem;
+    right: 0;
+    padding: 1rem;
+    display: none;
+    a{
+        font-size: 1.5rem;
+    }
+    .singleItem{
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 1.5rem;
+        align-items: center;
+        margin: 0 0 1rem 0;
+        h3{
+            margin: 0;
+        }
+        i{
+            color: $color2;
+            cursor: pointer;
+            &:hover{
+                color: red;
+            }
+        }
+    }
+}
+.active {
+    display: block;
+}
 .about-us{
     display: grid;
     justify-content: center;
