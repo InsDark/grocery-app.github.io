@@ -149,3 +149,13 @@ clearAll.addEventListener('click', () => {
     countItems()
     countMoney()
 })
+
+let checkOut = document.querySelector('.checkOut')
+checkOut.addEventListener('click', () => {
+    if (otherCartList.childNodes.length === 0) {
+        alert(`You don't have item on the cart list`)
+    } else {
+        alert(`Thanks to buy here ${otherCartList.childNodes.length} items`)
+    }
+    
+})

@@ -83,7 +83,52 @@ nav{
             margin: 0;
         }
     }
+    .fa-bars{
+        font-size: 1.5rem;
+        border-radius: .3rem;
+        background-color: $color2;    
+        color: $color1;
+        padding: .5rem; 
+        cursor: pointer;
+        display: none;
+        &:hover{
+            transition: .5s ease;
+            color: $color2;
+            background-color: $color3;
+        }
+    }
 }
+
+@media screen and (max-width: 750px){
+    nav{
+        padding: 1rem;
+        justify-content: space-around;
+        .nav-options{
+            display: none;
+        }
+        .number{
+            display: none;
+        }
+        .item-cart{
+            display: none;
+        }
+        .fa-bars{
+            font-size: 1.5rem;
+            border-radius: .3rem;
+            background-color: $color2;    
+            color: $color1;
+            padding: .5rem; 
+            cursor: pointer;
+            display: block;
+            &:hover{
+                transition: .5s ease;
+                color: $color2;
+                background-color: $color3;
+            }
+        }
+    }
+}
+
 .main-cover{
     background-image: url(../img/headerBcg.jpeg);
     background-repeat: no-repeat;
@@ -149,11 +194,10 @@ nav{
 }
 .about-us{
     display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    margin: 3rem 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    align-items: center;
+    margin: 3rem 0rem;
     div{
-        width: auto;
         padding: 0 0 2rem 3rem;
         h2{
             font-size: 3rem;
@@ -174,7 +218,8 @@ nav{
         }
     }
     img{
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         height: auto;
         transition: .4s ease;
         &:hover{
@@ -186,7 +231,7 @@ nav{
 
 .store{
     background-color: rgba(128, 128, 128, 0.1);
-    padding: 1.5rem 0;
+    padding: 1.5rem 0rem;
     h2{
         text-align: center;
         font-size: 3rem;
@@ -211,7 +256,7 @@ nav{
     .products{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-        padding: 2rem 5rem;
+        padding: 2rem 1rem;
         gap: 2rem;
         .item{
             background-color: $color1;
@@ -250,43 +295,6 @@ nav{
                 cursor: pointer;
                 i{
                     margin-right: .4rem;
-                }
-            }
-        }
-    }
-}
-
-.grocery-cart{
-    text-align: center;
-    h2{
-        color: $color3;
-        font-size: 3rem;
-    }
-    strong{
-        color: $color2;
-        font-size: 4rem;
-    }
-    .items-cart{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-        gap: 2rem;
-        padding: 0 3rem;
-        div{
-            align-items: center;
-            box-shadow: 1px 1px 10px black;
-            border-radius: 1rem;
-            display: flex;
-            justify-content: space-around;
-            h2{
-                font-size: 2rem;
-            }
-            .fa-trash{
-                color: red;
-                &:hover{
-                    transition:  all .2s ease;
-                    color: rgb(27, 2, 27);
-                    cursor: pointer;
-                    transform: scale(120%);
                 }
             }
         }
